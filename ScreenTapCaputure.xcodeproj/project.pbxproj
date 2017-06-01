@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		2F2593B91EE0477A00841117 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2593B81EE0477A00841117 /* AppDelegate.swift */; };
-		2F2593BB1EE0477A00841117 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2593BA1EE0477A00841117 /* ViewController.swift */; };
 		2F2593BE1EE0477A00841117 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F2593BC1EE0477A00841117 /* Main.storyboard */; };
 		2F2593C01EE0477A00841117 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F2593BF1EE0477A00841117 /* Assets.xcassets */; };
 		2F2593C31EE0477A00841117 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F2593C11EE0477A00841117 /* LaunchScreen.storyboard */; };
 		2F2593CE1EE0477A00841117 /* ScreenTapCaputureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2593CD1EE0477A00841117 /* ScreenTapCaputureTests.swift */; };
 		2F2593D91EE0477A00841117 /* ScreenTapCaputureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2593D81EE0477A00841117 /* ScreenTapCaputureUITests.swift */; };
+		2F2593E71EE04DF700841117 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2593E61EE04DF700841117 /* MainViewController.swift */; };
+		2F2593E91EE04E0200841117 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2593E81EE04E0200841117 /* ResultsViewController.swift */; };
+		2FAD5CD41EE04F8100FB4120 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAD5CD31EE04F8100FB4120 /* UIImageExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +38,6 @@
 /* Begin PBXFileReference section */
 		2F2593B51EE0477A00841117 /* ScreenTapCaputure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScreenTapCaputure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F2593B81EE0477A00841117 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2F2593BA1EE0477A00841117 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2F2593BD1EE0477A00841117 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2F2593BF1EE0477A00841117 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F2593C21EE0477A00841117 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +48,9 @@
 		2F2593D41EE0477A00841117 /* ScreenTapCaputureUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScreenTapCaputureUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F2593D81EE0477A00841117 /* ScreenTapCaputureUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTapCaputureUITests.swift; sourceTree = "<group>"; };
 		2F2593DA1EE0477A00841117 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F2593E61EE04DF700841117 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		2F2593E81EE04E0200841117 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		2FAD5CD31EE04F8100FB4120 /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,10 +101,13 @@
 		2F2593B71EE0477A00841117 /* ScreenTapCaputure */ = {
 			isa = PBXGroup;
 			children = (
-				2F2593B81EE0477A00841117 /* AppDelegate.swift */,
-				2F2593BA1EE0477A00841117 /* ViewController.swift */,
-				2F2593BC1EE0477A00841117 /* Main.storyboard */,
+				2FAD5CD51EE04F8400FB4120 /* Extensions */,
+				2F2593EB1EE04E2500841117 /* Models */,
+				2F2593EC1EE04E3100841117 /* Views */,
+				2F2593EA1EE04E1500841117 /* Controllers */,
+				2F2593ED1EE04E4100841117 /* Storyboard */,
 				2F2593BF1EE0477A00841117 /* Assets.xcassets */,
+				2F2593B81EE0477A00841117 /* AppDelegate.swift */,
 				2F2593C11EE0477A00841117 /* LaunchScreen.storyboard */,
 				2F2593C41EE0477A00841117 /* Info.plist */,
 			);
@@ -123,6 +130,45 @@
 				2F2593DA1EE0477A00841117 /* Info.plist */,
 			);
 			path = ScreenTapCaputureUITests;
+			sourceTree = "<group>";
+		};
+		2F2593EA1EE04E1500841117 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2F2593E61EE04DF700841117 /* MainViewController.swift */,
+				2F2593E81EE04E0200841117 /* ResultsViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		2F2593EB1EE04E2500841117 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		2F2593EC1EE04E3100841117 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		2F2593ED1EE04E4100841117 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				2F2593BC1EE0477A00841117 /* Main.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		2FAD5CD51EE04F8400FB4120 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2FAD5CD31EE04F8100FB4120 /* UIImageExtensions.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,8 +308,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F2593BB1EE0477A00841117 /* ViewController.swift in Sources */,
 				2F2593B91EE0477A00841117 /* AppDelegate.swift in Sources */,
+				2F2593E71EE04DF700841117 /* MainViewController.swift in Sources */,
+				2F2593E91EE04E0200841117 /* ResultsViewController.swift in Sources */,
+				2FAD5CD41EE04F8100FB4120 /* UIImageExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +564,7 @@
 				2F2593DF1EE0477A00841117 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2F2593E01EE0477A00841117 /* Build configuration list for PBXNativeTarget "ScreenTapCaputureTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +573,7 @@
 				2F2593E21EE0477A00841117 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2F2593E31EE0477A00841117 /* Build configuration list for PBXNativeTarget "ScreenTapCaputureUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +582,7 @@
 				2F2593E51EE0477A00841117 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

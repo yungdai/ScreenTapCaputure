@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ScreenTapCaputure" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="ScreenTapCaputure" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -28,12 +28,15 @@
                                         <rect key="frame" x="141.5" y="629" width="92" height="30"/>
                                         <state key="normal" title="Show Results"/>
                                         <connections>
-                                            <segue destination="YcS-yx-m1p" kind="show" id="l1X-2n-cl6"/>
+                                            <segue destination="YcS-yx-m1p" kind="show" identifier="showResults" id="l1X-2n-cl6"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1w-6L-SRS">
                                         <rect key="frame" x="8" y="8" width="122" height="30"/>
                                         <state key="normal" title="Start Tap Capture"/>
+                                        <connections>
+                                            <action selector="startCaptureButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dxk-7D-HH6"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -60,20 +63,25 @@
                     <navigationItem key="navigationItem" id="1vl-y1-98M"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="startCaptureButton" destination="R1w-6L-SRS" id="HQQ-mC-5og"/>
+                        <outlet property="tapGesture" destination="Qrx-HD-8QM" id="8aN-j6-znX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Qrx-HD-8QM">
                     <connections>
+                        <action selector="screenTapped:" destination="BYZ-38-t0r" id="7Vp-Y4-eOy"/>
                         <outlet property="delegate" destination="BYZ-38-t0r" id="va0-yP-OFH"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="930" y="793"/>
         </scene>
-        <!--View Controller-->
+        <!--Results View Controller-->
         <scene sceneID="fnN-fd-hb1">
             <objects>
-                <viewController id="YcS-yx-m1p" sceneMemberID="viewController">
+                <viewController id="YcS-yx-m1p" customClass="ResultsViewController" customModule="ScreenTapCaputure" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Zwc-pD-rvX"/>
                         <viewControllerLayoutGuide type="bottom" id="wLm-lu-2Qb"/>
@@ -82,9 +90,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aQK-Y6-kbP">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7lW-px-htk">
                                 <rect key="frame" x="8" y="8" width="37" height="30"/>
                                 <state key="normal" title="Done"/>
@@ -92,6 +97,9 @@
                                     <segue destination="BYZ-38-t0r" kind="showDetail" id="zlR-fD-T2m"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aQK-Y6-kbP">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -103,6 +111,9 @@
                             <constraint firstItem="7lW-px-htk" firstAttribute="top" secondItem="2VJ-cB-FIO" secondAttribute="top" constant="8" id="frK-zP-3P1"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="resultImageView" destination="aQK-Y6-kbP" id="0rm-MH-WeE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rWe-Zd-1TG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
