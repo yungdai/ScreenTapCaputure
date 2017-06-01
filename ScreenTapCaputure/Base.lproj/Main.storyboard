@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,23 +22,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kV4-ft-TGO" userLabel="Tapping View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kV4-ft-TGO" userLabel="Tapping View" customClass="TapView" customModule="ScreenTapCaputure" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TestBackground" translatesAutoresizingMaskIntoConstraints="NO" id="TXY-6u-5Lc">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="TXY-6u-5Lc" secondAttribute="trailing" id="50M-O7-Lcd"/>
+                                    <constraint firstAttribute="bottom" secondItem="TXY-6u-5Lc" secondAttribute="bottom" id="JJH-2o-cGM"/>
+                                    <constraint firstItem="TXY-6u-5Lc" firstAttribute="leading" secondItem="kV4-ft-TGO" secondAttribute="leading" id="RAO-h2-GNj"/>
+                                    <constraint firstItem="TXY-6u-5Lc" firstAttribute="top" secondItem="kV4-ft-TGO" secondAttribute="top" id="zTY-hR-hH9"/>
+                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="Qrx-HD-8QM" appends="YES" id="mHA-6K-BrP"/>
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="or6-Ve-2iu">
-                                <rect key="frame" x="141" y="627" width="92" height="30"/>
-                                <state key="normal" title="Show Results"/>
+                                <rect key="frame" x="216.5" y="18.5" width="92" height="30"/>
+                                <state key="normal" title="Show Results">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <segue destination="YcS-yx-m1p" kind="show" identifier="showResults" id="l1X-2n-cl6"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1w-6L-SRS">
                                 <rect key="frame" x="10" y="20" width="122" height="30"/>
-                                <state key="normal" title="Start Tap Capture"/>
+                                <state key="normal" title="Start Tap Capture">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="startCaptureButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dxk-7D-HH6"/>
                                 </connections>
@@ -45,13 +61,13 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="or6-Ve-2iu" secondAttribute="bottom" constant="10" id="0r8-Oh-1ko"/>
                             <constraint firstItem="R1w-6L-SRS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="JXa-CP-RZG"/>
                             <constraint firstItem="kV4-ft-TGO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="RSf-xI-MpH"/>
                             <constraint firstItem="kV4-ft-TGO" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="WDf-6S-PS7"/>
                             <constraint firstItem="R1w-6L-SRS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="dXL-G4-Z2k"/>
-                            <constraint firstItem="or6-Ve-2iu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hk1-gD-OMA"/>
+                            <constraint firstItem="or6-Ve-2iu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="1.4" id="hk1-gD-OMA"/>
                             <constraint firstAttribute="trailing" secondItem="kV4-ft-TGO" secondAttribute="trailing" id="v9I-J1-bai"/>
+                            <constraint firstItem="or6-Ve-2iu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.1" id="xYN-0C-rP6"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kV4-ft-TGO" secondAttribute="bottom" id="ytD-nu-asB"/>
                         </constraints>
                     </view>
@@ -62,7 +78,7 @@
                     <connections>
                         <outlet property="startTapCaptureButton" destination="R1w-6L-SRS" id="yRB-4K-fYa"/>
                         <outlet property="tapGesture" destination="Qrx-HD-8QM" id="8aN-j6-znX"/>
-                        <outlet property="tappingView" destination="kV4-ft-TGO" id="nL1-ZR-hMS"/>
+                        <outlet property="tappingView" destination="kV4-ft-TGO" id="VPO-Ht-GtH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -73,7 +89,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="930" y="793"/>
+            <point key="canvasLocation" x="913" y="793"/>
         </scene>
         <!--Results View Controller-->
         <scene sceneID="fnN-fd-hb1">
@@ -136,6 +152,9 @@
             <point key="canvasLocation" x="133.59999999999999" y="792.95352323838085"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="TestBackground" width="1242" height="2208"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zlR-fD-T2m"/>
     </inferredMetricsTieBreakers>

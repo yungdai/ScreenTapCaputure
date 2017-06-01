@@ -17,6 +17,7 @@
 		2F2593E91EE04E0200841117 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2593E81EE04E0200841117 /* ResultsViewController.swift */; };
 		2FAD5CD41EE04F8100FB4120 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAD5CD31EE04F8100FB4120 /* UIImageExtensions.swift */; };
 		2FAD5CD91EE0532600FB4120 /* TapCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAD5CD81EE0532600FB4120 /* TapCapture.swift */; };
+		2FB828871EE0A37A009438E1 /* TapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB828861EE0A37A009438E1 /* TapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		2F2593E81EE04E0200841117 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		2FAD5CD31EE04F8100FB4120 /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		2FAD5CD81EE0532600FB4120 /* TapCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapCapture.swift; sourceTree = "<group>"; };
+		2FB828861EE0A37A009438E1 /* TapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 		2F2593EC1EE04E3100841117 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2FB828861EE0A37A009438E1 /* TapView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 			files = (
 				2F2593B91EE0477A00841117 /* AppDelegate.swift in Sources */,
 				2F2593E71EE04DF700841117 /* MainViewController.swift in Sources */,
+				2FB828871EE0A37A009438E1 /* TapView.swift in Sources */,
 				2F2593E91EE04E0200841117 /* ResultsViewController.swift in Sources */,
 				2FAD5CD91EE0532600FB4120 /* TapCapture.swift in Sources */,
 				2FAD5CD41EE04F8100FB4120 /* UIImageExtensions.swift in Sources */,

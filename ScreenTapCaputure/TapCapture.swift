@@ -19,9 +19,7 @@ protocol TapCaptureDelegate: class {
 class TapCapture: NSObject {
     
     weak var delegate: TapCaptureDelegate?
-    
-    
-    
+
     func startCapture() {
         
         guard let captureView = delegate?.capturingView as UIView? else { return }
@@ -31,6 +29,7 @@ class TapCapture: NSObject {
         delegate?.isCapturing = true
     }
     
+    
     func endCapture() {
         
         delegate?.isCapturing = false
@@ -38,8 +37,35 @@ class TapCapture: NSObject {
         
     }
     
+    func drawLineFromGesture(fromPoint: CGPoint, toPoint: CGPoint) {
+        
+        guard let image = delegate?.capturedImage as UIImage? else { return }
+        
+        // take an image and use it as the context
+        UIGraphicsBeginImageContextWithOptions(image.size, false, 0)
+        
+        // draw the image into the context
+        image.draw(at: CGPoint.zero)
+        
+        let context = UIGraphicsGetCurrentContext()
+        
+        // create the line
+        context?.move(to: CGPoint(x: fromPoint.x, y: fromPoint.y))
+        context?.addLine(to: CGPoint(x: toPoint.x, y: toPoint.y))
+        context?.setLineWidth(2.0)
+        context?.setLineCap(.round)
+        context?.setStrokeColor(UIColor.blue.cgColor)
+        context?.strokePath()
+        
+        delegate?.capturedImage = UIGraphicsGetImageFromCurrentImageContext()
+        
+        // stop the context capture
+        UIGraphicsEndImageContext()
+        
+    }
     
-    func drawTapCircleToImageAt(_ point: CGPoint) {
+    
+    func drawTapCircleToImageAt(_ atPoint: CGPoint) {
         
         guard let image = delegate?.capturedImage as UIImage? else { return }
 
@@ -53,18 +79,15 @@ class TapCapture: NSObject {
         let context = UIGraphicsGetCurrentContext()
 
         // create the rectangle for the circle
-        let rect = CGRect(x: point.x, y: point.y, width: 5.0, height: 5.0)
+        let rect = CGRect(x: atPoint.x, y: atPoint.y, width: 5.0, height: 5.0)
         
         // draw circle inside the rectangle
         context?.strokeEllipse(in: rect)
         
-        
         // set the red colour as the fill then fill the ellipse inside the rectangle
         UIColor.red.setFill()
         context?.fillEllipse(in: rect)
-        
-        
-        
+
         delegate?.capturedImage = UIGraphicsGetImageFromCurrentImageContext()
         
         // stop the context capture
