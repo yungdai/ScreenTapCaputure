@@ -8,53 +8,50 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, TapCaptureDelegate {
 
     @IBOutlet var tapGesture: UITapGestureRecognizer!
-    @IBOutlet weak var startCaptureButton: UIButton!
+    @IBOutlet weak var tappingView: UIView!
+    @IBOutlet weak var startTapCaptureButton: UIButton!
     
-    var isCapturing = false
+    var isCapturing: Bool = false
     var capturedImage: UIImage?
+    var capturingView: UIView?
     
+    let tapCapture: TapCapture = TapCapture()
     
     // MARK: - View Delegates
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        tapCapture.delegate = self
     }
 
     // MARK: - Tap Gestures
     @IBAction func screenTapped(_ sender: UITapGestureRecognizer) {
-        
+
         if isCapturing {
             
-            // enter in the capture code
+            let point: CGPoint = sender.location(in: self.tappingView)
+            tapCapture.drawTapCircleToImageAt(point)
         }
-        
     }
    
     @IBAction func startCaptureButtonPressed(_ sender: UIButton) {
     
         if !isCapturing {
             
-            startCapture()
+            self.capturingView = self.tappingView
+            tapCapture.startCapture()
+            startTapCaptureButton.setTitle("Stop Capture", for: .normal)
         } else {
             
-            stopCapture()
+            tapCapture.endCapture()
+            startTapCaptureButton.setTitle("Start Capture", for: .normal)
         }
-    
     }
     
-    func startCapture() {
-        
-        
-    }
-    
-    
-    func stopCapture() {
-        
-        
-    }
+
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -62,11 +59,7 @@ class MainViewController: UIViewController {
         if segue.identifier == "showResults" {
             
             let resultsVC = segue.destination as! ResultsViewController
-            
             resultsVC.resultImage = capturedImage
-            
         }
     }
-
-
 }

@@ -23,38 +23,34 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kV4-ft-TGO" userLabel="Tapping View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="or6-Ve-2iu">
-                                        <rect key="frame" x="141.5" y="629" width="92" height="30"/>
-                                        <state key="normal" title="Show Results"/>
-                                        <connections>
-                                            <segue destination="YcS-yx-m1p" kind="show" identifier="showResults" id="l1X-2n-cl6"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1w-6L-SRS">
-                                        <rect key="frame" x="8" y="8" width="122" height="30"/>
-                                        <state key="normal" title="Start Tap Capture"/>
-                                        <connections>
-                                            <action selector="startCaptureButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dxk-7D-HH6"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="R1w-6L-SRS" firstAttribute="leading" secondItem="kV4-ft-TGO" secondAttribute="leading" constant="8" id="Chc-37-0n7"/>
-                                    <constraint firstItem="or6-Ve-2iu" firstAttribute="centerX" secondItem="kV4-ft-TGO" secondAttribute="centerX" id="J19-LC-u81"/>
-                                    <constraint firstItem="R1w-6L-SRS" firstAttribute="top" secondItem="kV4-ft-TGO" secondAttribute="top" constant="8" id="Vpb-t5-RRh"/>
-                                    <constraint firstAttribute="bottom" secondItem="or6-Ve-2iu" secondAttribute="bottom" constant="8" id="c1B-Rf-bPp"/>
-                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="Qrx-HD-8QM" appends="YES" id="mHA-6K-BrP"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="or6-Ve-2iu">
+                                <rect key="frame" x="141" y="627" width="92" height="30"/>
+                                <state key="normal" title="Show Results"/>
+                                <connections>
+                                    <segue destination="YcS-yx-m1p" kind="show" identifier="showResults" id="l1X-2n-cl6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1w-6L-SRS">
+                                <rect key="frame" x="10" y="20" width="122" height="30"/>
+                                <state key="normal" title="Start Tap Capture"/>
+                                <connections>
+                                    <action selector="startCaptureButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dxk-7D-HH6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="or6-Ve-2iu" secondAttribute="bottom" constant="10" id="0r8-Oh-1ko"/>
+                            <constraint firstItem="R1w-6L-SRS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="JXa-CP-RZG"/>
                             <constraint firstItem="kV4-ft-TGO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="RSf-xI-MpH"/>
                             <constraint firstItem="kV4-ft-TGO" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="WDf-6S-PS7"/>
+                            <constraint firstItem="R1w-6L-SRS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="dXL-G4-Z2k"/>
+                            <constraint firstItem="or6-Ve-2iu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hk1-gD-OMA"/>
                             <constraint firstAttribute="trailing" secondItem="kV4-ft-TGO" secondAttribute="trailing" id="v9I-J1-bai"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kV4-ft-TGO" secondAttribute="bottom" id="ytD-nu-asB"/>
                         </constraints>
@@ -64,8 +60,9 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="startCaptureButton" destination="R1w-6L-SRS" id="HQQ-mC-5og"/>
+                        <outlet property="startTapCaptureButton" destination="R1w-6L-SRS" id="yRB-4K-fYa"/>
                         <outlet property="tapGesture" destination="Qrx-HD-8QM" id="8aN-j6-znX"/>
+                        <outlet property="tappingView" destination="kV4-ft-TGO" id="nL1-ZR-hMS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -90,6 +87,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aQK-Y6-kbP">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7lW-px-htk">
                                 <rect key="frame" x="8" y="8" width="37" height="30"/>
                                 <state key="normal" title="Done"/>
@@ -97,9 +97,6 @@
                                     <segue destination="BYZ-38-t0r" kind="showDetail" id="zlR-fD-T2m"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aQK-Y6-kbP">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

@@ -17,14 +17,11 @@ class ResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        guard let displayImage = resultImage as UIImage? else { return }
+        
+        resultImageView.image = displayImage
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
     /*
     // MARK: - Navigation
